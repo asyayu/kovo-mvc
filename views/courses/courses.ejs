@@ -1,5 +1,7 @@
 <%- include("../partials/header")%>
 
+<%- include('../partials/flash') %>
+
 <h1>All Courses</h1>
 
 
@@ -71,7 +73,7 @@
 
                                     <div class="row">
                                         <div class="col-sm-6"><strong>Contact:</strong> <%= course.email %></div>
-                                        <div class="col-sm-6"><strong>Resource:</strong> <a href="<%= course.opal %>">OPAL</a></div>
+                                        <div class="col-sm-6"><strong>Resource:</strong> <a href="<%= course.opal %>" target="_blank">OPAL</a></div>
                                     </div>
                                     <% if (course.registrationInfo) { %>
                                         <div class="row">

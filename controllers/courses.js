@@ -38,9 +38,11 @@ module.exports = {
             newCourse.litList = req.body.lit.split('^');
             await newCourse.save();
             console.log(newCourse);
+            req.flash('success', 'Successfully added a new course!');
             res.redirect(`/courses`);
         } catch (err) {
             console.log(err);
+            req.flash('error', 'Something went wrong!');
             res.render('error', {err, title: 'Error'});
         }
     },
@@ -69,9 +71,11 @@ module.exports = {
             const {id} = req.params;
             const course = await Course.findByIdAndUpdate(id, req.body, {runValidators: true, new: true});
             console.log(`COURSE UPDATED: ${course.courseTitle}`);
+            req.flash('success', `Course ${course.courseTitle} successfully updated!`)
             res.redirect(`/courses`);
         } catch (err) {
             console.log(err);
+            req.flash('error', 'Something went wrong!');
             res.render('error', {err, title: 'Error'});
         }
     },
@@ -80,9 +84,11 @@ module.exports = {
             const {id} = req.params;
             const course = await Course.findByIdAndDelete(id);
             console.log(`COURSE DELETED: ${course.courseTitle}`);
+            req.flash('success', `Course ${course.courseTitle} successfully deleted!`)
             res.redirect(`/courses`);
         } catch (err) {
             console.log(err);
+            req.flash('error', 'Something went wrong!');
             res.render('error', {err, title: 'Error'});
         }
     }

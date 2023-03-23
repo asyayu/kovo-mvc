@@ -1,0 +1,25 @@
+<%- include("../partials/header")%> <%- include('../partials/flash') %>
+<h1>Register</h1>
+<form action="/register" method="POST">
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      name="username"
+      required
+    />
+    <label for="password" class="form-label">Password</label>
+    <input
+      class="form-control"
+      type="password"
+      name="password"
+      id="password"
+      required
+    />
+  </div>
+  <button class="btn btn-success">Register</button>
+</form>
+
+<%- include("../partials/footer")%>

@@ -1,6 +1,4 @@
 const Course = require("../models/course");
-const catchAsync = require('../utils/catchAsync');
-const ExpressError = require('../utils/ExpressError');
 const {instructors, courseTypes, weekdays, times, semesters, semSansSpace, modules} = require('../config/data');
 
 module.exports = {
